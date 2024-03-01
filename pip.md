@@ -1,0 +1,65 @@
+# pip
+- [pip install](#pip-install)
+- [pip list vs. pip freeze](#pip-list-vs-pip-freeze)
+  - [pip list](#pip-list)
+  - [pip freeze](#pip-freeze)
+- [requirements.txt](#requirementstxt)
+
+
+**pip** is the package management system for Python.
+
+- [pip install](#pip-install)
+- [pip list vs. pip freeze](#pip-list-vs-pip-freeze)
+  - [pip list](#pip-list)
+  - [pip freeze](#pip-freeze)
+- [requirements.txt](#requirementstxt)
+
+## pip install
+Install package from [PyPI](https://pypi.org/)
+```
+pip install <package>
+```
+
+Install package from a Git repository
+```
+pip install git+https://github.com/psf/requests.git
+```
+
+Install the packages listed in a requirements.txt file
+```
+pip install -r requirements.txt
+```
+
+## pip list vs. pip freeze
+
+Both `pip list` and `pip freeze` list installed packages.
+
+### pip list
+Use `pip list` to check installed packages and their versions in an easy-to-read format.
+
+Example output:
+  ```
+  Package              Version
+  -------------------- -------
+  Django                5.0.2
+  ```
+
+### pip freeze
+Use `pip freeze` to record project dependencies in a `requirements.txt` file.
+
+Example output:
+  ```
+  Django==3.2.7
+  ```
+
+**Note:**
+Only packages directly related to the project are included in requirements.txt. Therefore, packages required for environment configuration, such as pip, are typically not included.
+
+
+## requirements.txt
+
+Creating a `requirements.txt` file lists all of the packages your project needs to run.
+```
+pip freeze > requirements.txt
+```
+
