@@ -42,7 +42,7 @@ CMD ["python", "app.py"]
 
 The `COPY . .` directive copies everything from build context into the WORKDIR inside the container.
 
-The **build context** is the directory on your local environment where the docker build command is executed to build a Docker image. It's also the directory where the Dockerfile exists.
+The **build context** is the directory on your local environment where the build command is executed. It's also the directory where the Dockerfile exists.
 
 The **WORKDIR** is the container image's working directory.
 

@@ -95,4 +95,3 @@ In Compose V2, use `docker compose` instead of `docker-compose`.
     docker compose run --rm app sh -c "python manage.py test"
     ```
 
-

@@ -2,12 +2,11 @@
 
 - [Start a new project](#start-a-new-project)
 - [Migration](#migration)
-- [Start server](#start-server)
+  - [Resetting the Database](#resetting-the-database)
 - [Functions](#functions)
   - [django.urls.reverse()](#djangourlsreverse)
 - [Django Tests](#django-tests)
   - [Structure](#structure)
-  - [sample](#sample)
   - [Running Tests](#running-tests)
   - [Assertions](#assertions)
     - [assertRedirects](#assertredirects)
@@ -34,6 +33,12 @@ django-admin startproject config .
 python manage.py startapp app_name
 ```
 
+Start server:
+```sh
+python manage.py runserver
+```
+Visit http://127.0.0.1:8000/
+
 ## Migration
 Django create a database table for each models in `models.py`.
 
@@ -48,11 +53,15 @@ Migrate applies the migration files to update the database and tables.
 python manage.py migrate
 ```
 
-## Start server
+### Resetting the Database
+Errors can occur in situations such as attempting to create a table that already exists.
+
+When there is no need to retain data, resetting the database and re-applying migrations is the simplest solution.
+
 ```sh
-python manage.py runserver
+docker compose down -v  # Removes Docker containers and volumes
+docker compose up -d    # Rebuilds and starts the Docker containers
 ```
-http://127.0.0.1:8000/
 
 ## Functions
 ### django.urls.reverse()
@@ -87,22 +96,6 @@ from django.test import TestCase
 If you don't use database for test:
 ```python
 from django.test import SimpleTestCase
-```
-
-
-
-
-### sample
-`tests.py`
-```python
-from django.test import TestCase
-from django.urls import reverse
-
-# check if homepage loads correctly
-class HomePageTests(TestCase):
-    def test_home_page_status_code(self):
-        response = self.client.get(reverse('home'))
-        self.assertEqual(response.status_code, 200)
 ```
 
 ### Running Tests
