@@ -13,6 +13,9 @@
 - [Conditional Rendering](#conditional-rendering)
   - [\&\& Operator](#-operator)
   - [Ternary Operator](#ternary-operator)
+- [State: A Component's Memory](#state-a-components-memory)
+- [Hooks](#hooks)
+  - [useState](#usestate)
 
 
 ## Create a project
@@ -134,4 +137,26 @@ function Greeting({ isLoggedIn }) {
         </div>
     );
 }
+```
+
+
+
+## State: A Component's Memory
+Components need to “remember” things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called state.
+
+## Hooks
+In React, functions starting with “use”, is called a Hook.
+
+
+### useState
+
+useState declares a state variable that you can update directly.
+
+```js
+import { useState } from 'react';
+
+function MyComponent() {
+  const [age, setAge] = useState(42);
+  const [name, setName] = useState('Taylor');
+  // ...
 ```
