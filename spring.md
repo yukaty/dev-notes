@@ -10,11 +10,12 @@
   - [@Service](#service)
 - [Project Lombok](#project-lombok)
 - [Profiles](#profiles)
-  - [Environment-Specific Configuration File](#environment-specific-configuration-file)
+  - [Environment-Specific Configuration](#environment-specific-configuration)
   - [@ConfigurationProperties](#configurationproperties)
 - [REST API Endpoints](#rest-api-endpoints)
   - [Spring Data REST](#spring-data-rest)
   - [@RestController](#restcontroller)
+- [Loading Initial Data with Spring Boot](#loading-initial-data-with-spring-boot)
 
 
 ## Dependency Injection (DI)
@@ -130,7 +131,7 @@ public class Product {
 ## Profiles
 In Spring Boot, the base configuration file is `application.properties`.
 
-### Environment-Specific Configuration File
+### Environment-Specific Configuration
 You can create multiple profiles for different environments with specific suffixes, such as `application-dev.properties` and `application-prod.properties`.
 
 To set the active profile within the default `application.properties` file, add:
@@ -191,3 +192,20 @@ With Spring Data REST, you can quickly implement fundamental CRUD features via `
 ### @RestController
 
 `@RestController` is better suited for APIs that include complex business logic. It allows you to customize request methods, parameters, response formats, and HTTP status codes as needed.
+
+
+
+## Loading Initial Data with Spring Boot
+
+Hibernate can create, update, or validate the schema based on the entity classes. You can control how Spring Boot handles datasource initialization and script execution using `application.properties`:
+
+- **`spring.jpa.hibernate.ddl-auto=none`**
+   - Hibernate should not make any changes to the schema automatically
+   - Spring Boot can automatically execute SQL scripts (`schema.sql` and `data.sql`) at startup.
+   - Commonly used when you want full control over the schema
+
+- **`spring.jpa.defer-datasource-initialization=true`**
+   - Ensures that SQL scripts run at the right time, after Hibernate has finished schema generation.
+   - Particularly useful when you want to use SQL scripts with Hibernate's DDL auto features.
+
+Check more details: https://www.baeldung.com/spring-boot-data-sql-and-schema-sql
