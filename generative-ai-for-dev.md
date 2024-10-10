@@ -1,9 +1,9 @@
 # Generative AI for Software Development
-Study note for Generative AI for Software Development Skill Certificate offered by DeepLearning.AI.
+Study note for Generative AI for Software Development Certificate offered by DeepLearning.AI.
 
 - [Course 1: Introduction to GenAI](#course-1-introduction-to-genai)
   - [Setting up Jupyter environment](#setting-up-jupyter-environment)
-    - [NOTE: `%%timeit`](#note-timeit)
+    - [Magic commands in Jupyter Notebook](#magic-commands-in-jupyter-notebook)
   - [AI/ML](#aiml)
   - [Supervised Learning](#supervised-learning)
   - [Transformer](#transformer)
@@ -60,51 +60,43 @@ Introduction to Generative AI for Software Development
 
 ### Setting up Jupyter environment
 1. Install Anaconda distribution
-
-    Anaconda distribution includes Python, the Jupyter Notebook, and other commonly used packages for data science.
-
-    Download the installer: [Anaconda website](https://www.anaconda.com/products/distribution)
+   - Anaconda distribution includes Python, the Jupyter Notebook, and other commonly used packages for data science.
+   - Download the installer: [Anaconda website](https://www.anaconda.com/products/distribution)
 
 2. Start the Jupyter Notebook server
     ```
     jupyter notebook
     ```
-
-#### NOTE: `%%timeit`
-`%%timeit` is a magic command in Jupyter Notebook that is used to measure the execution time of code.
-
-`%%timeit` is written at the top of a code cell, and it will measure the execution time of **the entire cell**.
-
-`%timeit` measures the execution time of **a single line** of code.
+#### Magic commands in Jupyter Notebook
+  - `%%timeit` is written at the top of a code cell, and measures the execution time of an entire cell.
+  - `%timeit` measures the execution time of a single line of code.
 
 ### AI/ML
-- **AI** is the broader concept of intelligent machines
-- **Machine learning** is a method within AI that focuses on learning from data
+- **AI** is the broader concept of intelligent machines.
+- **Machine learning** is a method within AI that focuses on learning from data.
 
 ### Supervised Learning
-Supervised learning involves training models on labeled data, similar to teaching with flashcards.
-
-**Large language models (LLMs)** like ChatGPT are trained using supervised learning on vast amounts of text, learning relationships between words to generate coherent text.
-
+- Supervised learning involves training models on labeled data, similar to teaching with flashcards.
+- **Large language models (LLMs)** like ChatGPT are trained using supervised learning on vast amounts of text, learning relationships between words to generate coherent text.
 
 ### Transformer
-The transformer model, which were first introduced in 2017, significantly improved how AI processes text, making it possible to develop advanced large language models (LLMs) like GPT.
-
-Transformers build on supervised learning. The attention mechanism within transformers allows the model to focus on important words or tokens in a sequence, improving contextual understanding.
+- The transformer model, which were first introduced in 2017, significantly improved how AI processes text, making it possible to develop advanced large language models (LLMs) like GPT.
+- Transformers build on supervised learning.
+- The attention mechanism within transformers improves contextual understanding.
 
 #### Key concept 1: Attention mechanism
 
-Allows the model to focus on specific words when predicting the next word.
+- Attention mechamism allows model to focus on specific words when predicting the next word.
+- Text is split into **tokens**, each assigned a vector (**embedding**) that represents its meaning.
+- Attention refines these embeddings based on surrounding words for better context understanding.
 
-**Example**: In "my little white fluffy dog," attention highlights "little," "white," and "fluffy" to better understand "dog."
+  **Example**: In "my little white fluffy dog," attention highlights "little," "white," and "fluffy" to better understand "dog."
 
-**Tokens and Embeddings**:
-
-Text is split into **tokens**, each assigned a vector (**embedding**) that represents its meaning. Attention refines these embeddings based on surrounding words for better context understanding.
 
 #### Key concept 2: Encoders and Decoders
 
-Encoders analyze the entire input at once, and decoders generate new content from the processed context.
+- Encoders analyze the entire input at once.
+- Decoders generate new content from the processed context.
 
 ### Prompt best practices
 - Be specific
@@ -119,9 +111,8 @@ Encoders analyze the entire input at once, and decoders generate new content fro
 Write a Python function named calculate_area that takes an argument radius.
 
 The function should calculate the area of a circle given the radius. Ensure that the function handles non-numeric inputs by raising a ValueError with the message 'Input must be a numeric value.'
-
-Include comments in the code explaining each step.
 ```
+
 #### Prompt Samples with role assignment
 ```
 As a backend developer with expertise in Java, review this API code and suggest performance improvements and code optimizations.
@@ -197,8 +188,7 @@ You are a software engineer and tester who likes to go through code looking for 
 
 ### Functional Testing
 
-Functional testing checks if an application works according to **predefined requirements**.
-
+- Functional testing checks if an application works according to **predefined requirements**.
 - LLMs can help structure exploratory tests into functional tests.
 - You can specify tools like the `unittest` package in your prompt.
 - LLMs can help maintain test cases by suggesting updates based on the latest code.
@@ -215,7 +205,6 @@ As an expert software tester, write code that converts the output of the explora
   - Write test scripts in a **consistent style**, which helps teams collaborate efficiently.
   - Adapt to different programming languages (e.g., converting Python code to JavaScript).
   - Suggest relevant testing frameworks in other languages, such as **Jest** for JavaScript.
-
 
 ```
 You are an expert in PyTest for automated testing. Create a comprehensive set of tests in Pytest to find bugs or other issues in this code below.
@@ -255,7 +244,7 @@ While LLMs can assist in understanding security concepts, their utility in this 
 You are an expert in web security and in creating API endpoints. Can you create some test cases that test against  potential vulnerabilities in the following code?
 ```
 
-Repeat:
+**Repeat:**
 1. Create and run test cases for potential security issues
 2. Improve your code to mitigate issues found in testing
 
@@ -311,7 +300,7 @@ Automated documentation tools help generate, manage, and maintain documentation 
 
 ### Examples Prompts
 
- - Brainstorming
+- Brainstorming
   ```
   I am starting a data science project in Python and am looking to create some visualizations. Which libraries would allow me to create those?
   ```
